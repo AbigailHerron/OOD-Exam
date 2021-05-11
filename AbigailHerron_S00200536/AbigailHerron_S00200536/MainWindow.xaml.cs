@@ -34,6 +34,7 @@ namespace AbigailHerron_S00200536
     {
         /*PROPERTIES ------------------------------------------------------------------------------------------------------*/
         GameData db = new GameData(); // creating database object
+        List<Game> games = new List<Game>();
 
         /*CONSTRUCTORS ----------------------------------------------------------------------------------------------------*/
         /*Constructor: Default
@@ -52,9 +53,10 @@ namespace AbigailHerron_S00200536
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var query = from g in db.Games
-                        select g;
+                        select g as Game;
 
             lbxGames.ItemsSource = query.ToList();
+            games = query.ToList();
         }// end Window_Loaded()
 
 
@@ -66,9 +68,48 @@ namespace AbigailHerron_S00200536
             // converting selected item from anonymous type to Game object
             Game selectedGame = lbxGames.SelectedItem as Game;
 
-            // updating window objects
+            // updating window text blocks with object details
+            tblkPlatform.Text = selectedGame.Platform;
             tblkPrice.Text = $"{selectedGame.Price:C}";
-            imgGame.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Relative));
+            tblkDescription.Text = selectedGame.Description;
+            
+            //imgGame.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Relative));
         }// end lbxGames_SelectionChanged()
+
+
+
+        /*Method: rb_List()
+                  1) Executes whenever a RadioButton is selected
+                  2) Filters the list of games based on their Platform
+                  3) Changes the source of lbxGames to new, updatedGames list */
+        private void rb_List(object sender, RoutedEventArgs e)
+        {
+            List<Game> updatedGames = new List<Game>();
+
+            if (!((bool)rbAll.IsChecked))
+            {
+                foreach (Game g in games)
+                {
+                    if ((bool)rbXbox.IsChecked)
+                    {
+                        if (g.Platform.ToLower().Contains("xbox"))
+                            updatedGames.Add(g);
+                    }
+                    else if ((bool)rbPS.IsChecked)
+                    {
+                        if (g.Platform.ToLower().Contains("ps"))
+                            updatedGames.Add(g);
+                    }
+                    else if ((bool)rbSwitch.IsChecked)
+                    {
+                        if (g.Platform.ToLower().Contains("switch"))
+                            updatedGames.Add(g);
+                    }
+                }// end foreach block
+                lbxGames.ItemsSource = updatedGames;
+            }
+            else
+                lbxGames.ItemsSource = games;
+        }// end rb_List()
     }// end MainWindow class
 }// end AbigailHerron_S00200536 namespace
