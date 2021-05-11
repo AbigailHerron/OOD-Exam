@@ -7,7 +7,7 @@
  
  Description:
  Properties:
- Methods:
+ Methods: DecreasePrice
  Constructors: Default
  ##########################################################################################################################*/
 using System;
@@ -27,13 +27,13 @@ namespace AbigailHerron_S00200536
         public string Platform { get; set; }
         public string Game_Image { get; set; }
         public int Metacritic_Score { get; set; }
-        public static decimal Price { get; set; }
+        public decimal Price { get; set; }
 
         /*METHODS ---------------------------------------------------------------------------------------------------------*/
         /*Method: DecreasePrice()
                   1) Takes in a double value 
                   2) Decreases the price of the Game by percentage of the number value*/
-        public static void DecreasePrice(double number)
+        public void DecreasePrice(double number)
         {
             Price -=  (Price * (decimal) number);
         }// end DecreasePrice()
