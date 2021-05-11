@@ -11,7 +11,7 @@ Description: This document containes the Game class, and the GameData class (whi
      Class: Game
      Description: A blueprint for a Game object
      Properties: GameID, Name, Description, Platform, Game_Image, Metacritic_Score, Price
-     Methods: DecreasePrice
+     Methods: DecreasePrice, ToString (override)
      Constructors: Default
 
      Class: GameData
@@ -47,6 +47,16 @@ namespace AbigailHerron_S00200536
         {
             Price -=  (Price * (decimal) number);
         }// end DecreasePrice()
+
+
+
+        /*Method: ToString()
+                  1) Overrides original ToString() method
+                  2) Returns the Name property of the Game object*/
+        public override string ToString()
+        {
+            return this.Name;
+        }// end ToString()
     }// end Game class
 
 
