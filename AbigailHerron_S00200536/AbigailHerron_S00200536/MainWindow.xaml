@@ -19,6 +19,19 @@
         Loaded="Window_Loaded"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}">
+
+    <Window.Resources>
+        <DataTemplate x:Key="lbxTemplate">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Image Source="{Binding GameImage}" Width="40" />
+                <StackPanel>
+                    <TextBlock Text="{Binding Name}" Margin="5" FontSize="10"/>
+                    <TextBlock Text="{Binding CriticScore}" Margin="5" FontSize="10"/>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid>
         <!-- Defining Rows -->
         <Grid.RowDefinitions>
@@ -57,7 +70,7 @@
 
         <!-- Defining Row1 objects -->
         <TextBlock x:Name="tblkDescription" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" MinHeight="30" Width="260"  Margin="0,0,30,30" Grid.Row="1" Grid.Column="2" />
-        <ListBox x:Name="lbxGames" HorizontalAlignment="Center" VerticalAlignment="Top" Width="230" Height="300" Grid.Row="1" Grid.Column="0" SelectionChanged="lbxGames_SelectionChanged"/>
+        <ListBox x:Name="lbxGames" HorizontalAlignment="Center" VerticalAlignment="Top" Width="230" Height="300" Grid.Row="1" Grid.Column="0" SelectionChanged="lbxGames_SelectionChanged" ItemTemplate="{StaticResource lbxTemplate}" />
         
 
         <!--
