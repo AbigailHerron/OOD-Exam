@@ -6,8 +6,8 @@
  GitHub Repository: https://github.com/AbigailHerron/OOD-Exam
  
  Description: Contains the blueprint for the MainWindow's behaviour patterns
- Properties: db
- Methods: Window_Loaded, lbxGames_SelectionChanged
+ Properties: db, games
+ Methods: Window_Loaded, lbxGames_SelectionChanged, rb_List
  Constructors: Default
  ##########################################################################################################################*/
 using System;
