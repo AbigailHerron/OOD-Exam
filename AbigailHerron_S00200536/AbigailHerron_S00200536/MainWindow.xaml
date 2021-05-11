@@ -15,7 +15,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AbigailHerron_S00200536"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
         <!-- Defining Rows -->
         <Grid.RowDefinitions>
@@ -33,7 +34,7 @@
         <TextBlock x:Name="tblkPrice" HorizontalAlignment="Left" VerticalAlignment="Bottom" MinWidth="250" MinHeight="50" Grid.Row="0" Grid.Column="2"/>
 
         <!-- Defining Row1 objects -->
-        <ListBox x:Name="lbxGames" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="290" Grid.Row="1" Grid.Column="0"/>
+        <ListBox x:Name="lbxGames" HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Height="250" Grid.Row="1" Grid.Column="0" SelectionChanged="lbxGames_SelectionChanged"/>
         <Image x:Name="imgGame" Source="{Binding GameImage}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100" Grid.Row="1" Grid.Column="2"/>
     </Grid>
 </Window>
