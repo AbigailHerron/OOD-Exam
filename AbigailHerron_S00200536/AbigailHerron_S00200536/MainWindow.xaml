@@ -16,7 +16,9 @@
         xmlns:local="clr-namespace:AbigailHerron_S00200536"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}">
     <Grid>
         <!-- Defining Rows -->
         <Grid.RowDefinitions>
@@ -31,10 +33,35 @@
         </Grid.ColumnDefinitions>
 
         <!-- Defining Row0 objects -->
-        <TextBlock x:Name="tblkPrice" HorizontalAlignment="Left" VerticalAlignment="Bottom" MinWidth="250" MinHeight="50" Grid.Row="0" Grid.Column="2"/>
+            <!-- RadioButton and TextBlock Combinations -->
+        <RadioButton x:Name="rbAll" GroupName="Platform" VerticalAlignment="Bottom" Margin="100,0,0,30" Grid.Row="0" Grid.Column="0" Click="rb_List" />
+        <TextBlock x:Name="tblkRbAll" Text="All" VerticalAlignment="Bottom" Margin="120,0,0,30" Grid.Row="0" Grid.Column="0"/>
+
+        <RadioButton x:Name="rbXbox" GroupName="Platform" VerticalAlignment="Bottom" Margin="250,0,0,30" Grid.Row="0" Grid.Column="0" Click="rb_List" />
+        <TextBlock x:Name="tblkRbXbox" Text="XBox" VerticalAlignment="Bottom" Margin="270,0,0,30" Grid.Row="0" Grid.Column="0"/>
+
+        <RadioButton x:Name="rbPS" GroupName="Platform" VerticalAlignment="Bottom" Margin="100,0,0,5" Grid.Row="0" Grid.Column="0" Click="rb_List" />
+        <TextBlock x:Name="tblkRbPS" Text="PlayStation" VerticalAlignment="Bottom" Margin="120,0,0,5" Grid.Row="0" Grid.Column="0"/>
+
+        <RadioButton x:Name="rbSwitch" GroupName="Platform" VerticalAlignment="Bottom" Margin="250,0,0,5" Grid.Row="0" Grid.Column="0" Click="rb_List" />
+        <TextBlock x:Name="tblkRbSwitch" Text="Switch" VerticalAlignment="Bottom" Margin="270,0,0,5" Grid.Row="0" Grid.Column="0"/>
+
+            <!-- TextBlocks for Game Details -->
+        <TextBlock x:Name="tblkPlatformTitle" Text="Platform:" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="60" Height="20" Margin="0,0,0,50" Grid.Row="0" Grid.Column="2"/>
+        <TextBlock x:Name="tblkPlatform" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="20" Margin="65,0,0,50" Grid.Row="0" Grid.Column="2"/>
+        
+        <TextBlock x:Name="tblkPriceTitle" Text="Price:" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="40" Height="25" Margin="0,0,0,20" Grid.Row="0" Grid.Column="2"/>
+        <TextBlock x:Name="tblkPrice" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="20" Margin="45,0,0,25" Grid.Row="0" Grid.Column="2"/>
+
+        <TextBlock x:Name="tblkDescriptionTitle" Text="Description:" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="20" Grid.Row="0" Grid.Column="2"/>
 
         <!-- Defining Row1 objects -->
-        <ListBox x:Name="lbxGames" HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Height="250" Grid.Row="1" Grid.Column="0" SelectionChanged="lbxGames_SelectionChanged"/>
+        <TextBlock x:Name="tblkDescription" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" MinHeight="30" Width="260"  Margin="0,0,30,30" Grid.Row="1" Grid.Column="2" />
+        <ListBox x:Name="lbxGames" HorizontalAlignment="Center" VerticalAlignment="Top" Width="230" Height="300" Grid.Row="1" Grid.Column="0" SelectionChanged="lbxGames_SelectionChanged"/>
+        
+
+        <!--
         <Image x:Name="imgGame" Source="{Binding GameImage}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100" Grid.Row="1" Grid.Column="2"/>
+        -->
     </Grid>
 </Window>
